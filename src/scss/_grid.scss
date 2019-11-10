@@ -1,0 +1,77 @@
+/*
+	Grid Filter
+*/
+.filter-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 -0.5rem;
+  padding: 0;
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  li {
+    display: none;
+    transition: opacity ease 300ms, transform ease 300ms;
+    flex: 0 1 25%;
+    width: 25%;
+    padding: 0.5rem;
+
+    @media(max-width:767px) {
+      flex: 0 1 50%;
+      width: 50%;
+    }
+
+    &.before-visible,
+    &.is-invisible {
+      display: block;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &.before-invisible,
+    &.is-visible {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &.nothing {
+      display: block;
+      flex: 0 1 100%;
+      width: 100%;
+
+      p {
+        background-color: #eee;
+        padding: 1rem 2rem;
+      }
+    }
+  }
+
+  figure {
+    margin: 0;
+    position: relative;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+}
